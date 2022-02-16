@@ -1,53 +1,33 @@
+#DOODLE JUMP
 import pygame
-from pyglet import gl
-import random
-from pyglet.window import key
-from pyglet.window import Window
-pyglet.graphics.Batch
-
-obrazok = pygame.image.load('doodle.png')
+pygame.init()
 
 #konstanty
-co_x = 100
-co_y = 50
-SIRKA = 300
-VYSKA = 550
-stisknute_klavesy = set()
-#lopta
-velkost_lopty = 25
-rychlost_lopty = 1000 #px/s
-FARBA = (50, 225, 30)
-
-#ostrovceky
-SIRKA_OSTROVU = 25
-VYSKA_OSTROVU = 5
+biela = (255, 255, 255)
+cierna = (0, 0, 0)
+siva = (128, 128, 128)
+SIRKA = 400
+VYSKA = 500
+pozadie = biela
+obrazok = pygame.image.load('doodle.png')
+fps = 60
 
 #FONT
-VELKOST_FONTU = 42
-ODSADENIE_TEXTU = 30
-
-def stisk_klavesnice(symbol, modifikatory):
-    if symbol == key.W:
-        stisknute_klavesy.add(("hore", 0))
-    if symbol == key.S:
-        stisknute_klavesy.add(("dole", 0))
-    if symbol == key.UP:
-        stisknute_klavesy.add(("hore", 1))
-    if symbol == key.DOWN:
-        stisknute_klavesy.add(("dole", 1))
-
-def pusti_klavesnice(symbol, modifikatory):
-    if symbol == key.W:
-        stisknute_klavesy.discard(("hore", 0))
-    if symbol == key.S:
-        stisknute_klavesy.discard(("dole", 0))
-    if symbol == key.UP:
-        stisknute_klavesy.discard(("hore", 1))
-    if symbol == key.DOWN:
-        stisknute_klavesy.discard(("dole", 1))
 
 
-window = pyglet.window.Window(width=SIRKA, height=VYSKA)
-pyglet.app.run()
+cas = pygame.time.Clock()
 
+#obrazovka
+obrazovka = pygame.display.set_mode([SIRKA, VYSKA])
+pygame.display.set_caption('DOODLE JUMPER')
+
+running = True
+while running == True:
+    cas.tick(fps)
+    obrazovka.fill(pozadie)
+    for event in pygame.event.get():
+       if event.type == pygame.QUIT:
+           running = False
+    pygame.display.flip()
+pygame.quit()
 
