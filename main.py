@@ -31,7 +31,7 @@ while running == True:
     obrazovka.blit(hrac, (hrac_x, hrac_y))
     ostrovy = []
     for i in range(len(ostrovceky )):
-        ostrov = pygame.draw.rect(obrazovka, cierna, ostrovceky[i])
+        ostrov = pygame.draw.rect(obrazovka, cierna, ostrovceky[i], 0, 4)
         ostrovy.append(ostrovy)
     for event in pygame.event.get():
        if event.type == pygame.QUIT:
