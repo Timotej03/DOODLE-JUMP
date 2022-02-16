@@ -1,9 +1,11 @@
-import pyglet
+import pygame
 from pyglet import gl
 import random
 from pyglet.window import key
 from pyglet.window import Window
 pyglet.graphics.Batch
+
+obrazok = pygame.image.load('doodle.png')
 
 #konstanty
 co_x = 100
@@ -15,7 +17,7 @@ stisknute_klavesy = set()
 velkost_lopty = 25
 rychlost_lopty = 1000 #px/s
 FARBA = (50, 225, 30)
-jhkdfgeso
+
 #ostrovceky
 SIRKA_OSTROVU = 25
 VYSKA_OSTROVU = 5
