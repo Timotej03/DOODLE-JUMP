@@ -1,4 +1,6 @@
 #DOODLE JUMP
+import random
+
 import pygame
 
 pygame.init()
@@ -55,6 +57,19 @@ def pohyb_hraca(y_poz):
     zmena_y += gravitacia
     return y_poz
 
+#pohyb platforirm v priebehu hry
+def aktualizovane_ostrovceky(moj_list, y_poz, x_poz, zmena):
+    if y_poz < 250 and zmena_y < 0:
+        for i in range(len(moj_list)):
+            moj_list[i][1] -= zmena
+        else:
+            pass
+        for item in range(len(moj_list)):
+            if moj_list[item][i] > 500:
+                moj_list[item] = [random.randint(), 70, 10]
+
+
+
 running = True
 while running == True:
     cas.tick(fps)
@@ -83,7 +98,7 @@ while running == True:
     skok = kolizie(ostrovy, skok)
     hrac_x += zmena_x
     hrac_y = pohyb_hraca(hrac_y)
-
+    ostrovceky = aktualizovane_ostrovceky(ostrovceky, hrac_x, hrac_y)
 
 
     pygame.display.flip()
