@@ -15,14 +15,14 @@ hrac = pygame.transform.scale(pygame.image.load('doodle.png'), (60, 50))
 fps = 60
 
 #FONT
-#############################################
+font = pygame.font.Font('freesansbold.ttf', 16)
 
 cas = pygame.time.Clock()
 
 #premenné
 hrac_x = 170
 hrac_y = 400
-ostrovceky = [[165, 480, 70, 10],[85, 370, 70,10],[265, 370, 70, 10], [165, 260, 70, 10],[85, 150, 70,10],[265, 150, 70, 10], [265, 40, 70, 10]]
+ostrovceky = [[165, 480, 70, 10], [85, 370, 70, 10], [265, 370, 70, 10], [165, 260, 70, 10], [85, 150, 70, 10], [265, 150, 70, 10], [265, 40, 70, 10]]
 skok = False
 zmena_y = 0
 zmena_x = 0
@@ -38,7 +38,7 @@ def kolizie(rect_list, j):
     global hrac_y
     global zmena_y
     for i in range(len(rect_list)):
-        if rect_list[i].colliderect([hrac_x + 20, hrac_y + 60, 35, 6]) and skok == False and zmena_y >0:
+        if rect_list[i].colliderect([hrac_x + 20, hrac_y + 60, 35, 6]) and skok == False and zmena_y > 0:
             j = True
     return j
 
