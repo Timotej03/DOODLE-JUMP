@@ -24,6 +24,8 @@ hrac_y = 400
 ostrovceky = [[165, 480, 70, 10],[85, 370, 70,10],[265, 370, 70, 10], [165, 250, 70, 10],[85, 180, 70,10],[265, 370, 70, 10], [265, 40, 70, 10]]
 skok = False
 zmena_y = 0
+zmena_x = 0
+rychlost_hraca = 3
 
 #obrazovka
 obrazovka = pygame.display.set_mode([SIRKA, VYSKA])
@@ -35,7 +37,7 @@ def kolizie(rect_list, j):
     global hrac_y
     global zmena_y
     for i in range(len(rect_list)):
-        if rect_list[i].colliderect([hrac_x, hrac_y + 60, 90, 6])and skok == False and zmena_y >0:
+        if rect_list[i].colliderect([hrac_x + 20, hrac_y + 60, 35, 6])and skok == False and zmena_y >0:
             skok = True
     return j
 
@@ -67,7 +69,19 @@ while running == True:
     for event in pygame.event.get():
        if event.type == pygame.QUIT:
            running = False
+       if event.type == pygame.KEYDOWN:
+           if event.key == pygame.K_a:
+               zmena_x = - rychlost_hraca
+           if event.key == pygame.K_d:
+               zmena_x = - rychlost_hraca
+       if event.type == pygame.KEYUP:
+           if event.key == pygame.K_a:
+               zmena_x = 0
+           if event.key == pygame.K_d:
+               zmena_x = 0
+
     skok = kolizie(ostrovy, skok)
+    hrac_x += zmena_x
     hrac_y = pohyb_hraca(hrac_y)
 
 
