@@ -35,7 +35,7 @@ def kolizie(rect_list, j):
     global hrac_y
     global zmena_y
     for i in range(len(rect_list)):
-        if rect_list[i].colliderect([hrac_x, hrac_y + 60, 90, 10])and skok == False and zmena_y >0:
+        if rect_list[i].colliderect([hrac_x, hrac_y + 60, 90, 6])and skok == False and zmena_y >0:
             skok = True
     return j
 
@@ -45,9 +45,9 @@ def pohyb_hraca(y_poz):
     global skok
     global zmena_y
     vyska_skoku = 10
-    gravitacia = 1
+    gravitacia = .4
     if skok:
-        zmena_y -= vyska_skoku
+        zmena_y = -vyska_skoku
         skok = False
     y_poz += zmena_y
     zmena_y += gravitacia
@@ -67,9 +67,8 @@ while running == True:
     for event in pygame.event.get():
        if event.type == pygame.QUIT:
            running = False
-
-    hrac_y = pohyb_hraca(hrac_y)
     skok = kolizie(ostrovy, skok)
+    hrac_y = pohyb_hraca(hrac_y)
 
 
 
