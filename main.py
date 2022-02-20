@@ -1,9 +1,9 @@
 #DOODLE JUMP
 import random
 import pygame
-
+from pygame import mixer
 pygame.init()
-
+mixer.init()
 #konstanty
 biela = (255, 255, 255)
 cierna = (0, 0, 0)
@@ -18,11 +18,13 @@ skore = 0
 najvyssie_skore = 0
 koniec_hry = False
 
-
 #FONT
 font = pygame.font.Font('freesansbold.ttf', 16)
 
-
+#HUDBA
+mixer.music.load("Dream Speedrun Music.mp3")
+mixer.music.play()
+mixer.music.set_volume(0.7)
 
 #premenné
 hrac_x = 170
@@ -32,6 +34,9 @@ skok = False
 zmena_y = 0
 zmena_x = 0
 rychlost_hraca = 3
+posledne_skore = 0
+super_skok = 2
+posledny_skok = 0
 
 #obrazovka
 obrazovka = pygame.display.set_mode([SIRKA, VYSKA])
@@ -88,6 +93,12 @@ while running == True:
     najvyssie_skore_text = font.render('SKÓRE: ' + str(skore), True, cierna, pozadie)
     obrazovka.blit(najvyssie_skore_text, (280, 0))
 
+    skore_text = font.render('Super skoky (Medzerník): ' + str(super_skok), True, cierna, pozadie)
+    obrazovka.blit(skore_text, (10, 10))
+    if koniec_hry:
+        koniec_hry_text = font.render('HRA SKONČILA STLAČ MEDZERNÍK PRE POKRAČOVANIE!', True, cierna, pozadie)
+        obrazovka.blit(koniec_hry_text, (80, 80))
+
 
     for i in range(len(ostrovceky)):
         ostrov = pygame.draw.rect(obrazovka, cierna, ostrovceky[i], 0, 4)
@@ -103,8 +114,14 @@ while running == True:
                hrac_y = 400
                hrac_x = 170
                pozadie = biela
+               super_skok = 2
+               posledne_skore = 0
+               posledny_skok = 0
                ostrovceky = [[165, 480, 70, 10], [85, 370, 70, 10], [265, 370, 70, 10], [165, 260, 70, 10],
                              [85, 150, 70, 10], [265, 150, 70, 10], [265, 40, 70, 10]]
+           if event.key == pygame.K_SPACE and not koniec_hry and super_skok > 0:
+               super_skok -= 1
+               zmena_y = -15
            if event.key == pygame.K_a:
                zmena_x = - rychlost_hraca
            if event.key == pygame.K_d:
@@ -128,7 +145,6 @@ while running == True:
 
 
     ostrovceky = aktualizovane_ostrovceky(ostrovceky, hrac_x, hrac_y)
-
     if hrac_x < -20:
         hrac_x = -20
     elif hrac_x > 330:
@@ -142,6 +158,14 @@ while running == True:
     if skore > najvyssie_skore:
         najvyssie_skore = skore
 
+    if skore - posledne_skore > 20:
+        posledne_skore = skore
+        pozadie = (random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+
+
+    if skore - posledny_skok > 50:
+        posledny_skok = skore
+        super_skok += 1
     pygame.display.flip()
 pygame.quit()
 
