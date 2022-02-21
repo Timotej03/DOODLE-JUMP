@@ -4,6 +4,7 @@ import pygame
 from pygame import mixer
 pygame.init()
 mixer.init()
+
 #konstanty
 biela = (255, 255, 255)
 cierna = (0, 0, 0)
@@ -11,7 +12,7 @@ siva = (128, 128, 128)
 SIRKA = 400
 VYSKA = 500
 pozadie = biela
-hrac = pygame.transform.scale(pygame.image.load('doodle.png'), (60, 50))
+hrac = pygame.transform.scale(pygame.image.load('doodle-removebg-preview.png'), (60, 50))
 fps = 60
 cas = pygame.time.Clock()
 skore = 0
@@ -52,7 +53,6 @@ def kolizie(rect_list, j):
             j = True
     return j
 
-
 #pohyb hraca y
 def pohyb_hraca(y_poz):
     global skok
@@ -79,8 +79,6 @@ def aktualizovane_ostrovceky(moj_list, y_poz, x_poz, zmena):
                 moj_list[item] = [random.randint(0, 330), random.randint(-50, -10), 70, 10]
                 skore += 1
         return moj_list
-
-
 
 running = True
 while running == True:
@@ -161,7 +159,6 @@ while running == True:
     if skore - posledne_skore > 20:
         posledne_skore = skore
         pozadie = (random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
-
 
     if skore - posledny_skok > 50:
         posledny_skok = skore
