@@ -140,8 +140,6 @@ while running == True:
         zmena_y = 0
         zmena_x = 0
 
-
-
     ostrovceky = aktualizovane_ostrovceky(ostrovceky, hrac_x, hrac_y)
     if hrac_x < -20:
         hrac_x = -20
