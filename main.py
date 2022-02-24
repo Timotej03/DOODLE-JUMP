@@ -18,7 +18,7 @@ cas = pygame.time.Clock()
 skore = 0
 najvyssie_skore = 0
 koniec_hry = False
-
+aqjhfavukew
 #FONT
 font = pygame.font.Font('freesansbold.ttf', 16)
 
