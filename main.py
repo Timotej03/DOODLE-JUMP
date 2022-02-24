@@ -49,6 +49,7 @@ def kolizie(rect_list, j):
     global hrac_y
     global zmena_y
     for i in range(len(rect_list)):
+        print(rect_list[0])
         if rect_list[i].colliderect([hrac_x + 20, hrac_y + 60, 35, 6]) and skok == False and zmena_y > 0:
             j = True
     return j
