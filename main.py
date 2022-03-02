@@ -67,7 +67,7 @@ def pohyb_hraca(y_poz):
     zmena_y += gravitacia
     return y_poz
 
-#pohyb platforirm v priebehu hry
+#pohyb platforiem v priebehu hry
 def aktualizovane_ostrovceky(moj_list, y_poz, x_poz, zmena):
     global skore
     if y_poz < 250 and zmena_y < 0:
@@ -101,7 +101,7 @@ while running == True:
 
     for i in range(len(ostrovceky)):
         ostrov = pygame.draw.rect(obrazovka, cierna, ostrovceky[i], 0, 4)
-        ostrovy.append(ostrovy)
+        ostrovy.append(ostrov)
 
     for event in pygame.event.get():
        if event.type == pygame.QUIT:
@@ -141,7 +141,7 @@ while running == True:
         zmena_y = 0
         zmena_x = 0
 
-    ostrovceky = aktualizovane_ostrovceky(ostrovceky, hrac_x, hrac_y)
+    ostrovceky = aktualizovane_ostrovceky(ostrovceky, hrac_x, hrac_y,)
     if hrac_x < -20:
         hrac_x = -20
     elif hrac_x > 330:
