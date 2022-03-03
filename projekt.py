@@ -49,7 +49,6 @@ def kolizie(rect_list, j):
     global hrac_y
     global zmena_y
     for i in range(len(rect_list)):
-        print(rect_list[0])
         if rect_list[i].colliderect([hrac_x + 20, hrac_y + 60, 35, 6]) and skok == False and zmena_y > 0:
             j = True
     return j
@@ -73,13 +72,13 @@ def aktualizovane_ostrovceky(moj_list, y_poz, x_poz, zmena):
     if y_poz < 250 and zmena_y < 0:
         for i in range(len(moj_list)):
             moj_list[i][1] -= zmena
-        else:
-            pass
-        for item in range(len(moj_list)):
-            if moj_list[item][i] > 500:
-                moj_list[item] = [random.randint(0, 330), random.randint(-50, -10), 70, 10]
-                skore += 1
-        return moj_list
+    else:
+        pass
+    for item in range(len(moj_list)):
+        if moj_list[item][i] > 500:
+            moj_list[item] = [random.randint(10, 320), random.randint(-50, -10), 70, 10]
+            skore += 1
+    return moj_list
 
 running = True
 while running == True:

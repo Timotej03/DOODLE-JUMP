@@ -67,7 +67,7 @@ def update_platforms(sak_list_ne, y_pos, zmena):
         pass
     for item in range(len(sak_list_ne)):
         if sak_list_ne[item][1] > 500:
-            sak_list_ne[item] = [random.randint(10, 320), random.randint(-50, -10) ,70, 10]
+            sak_list_ne[item] = [random.randint(10, 320), random.randint(-50, -10), 70, 10]
             score += 1
     return sak_list_ne
 
