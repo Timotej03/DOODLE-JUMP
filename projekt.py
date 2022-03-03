@@ -104,32 +104,32 @@ while running == True:
         ostrovy.append(ostrov)
 
     for event in pygame.event.get():
-       if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT:
            running = False
-       if event.type == pygame.KEYDOWN:
-           if event.key == pygame.K_SPACE and koniec_hry:
-               koniec_hry = False
-               skore = 0
-               hrac_y = 400
-               hrac_x = 170
-               pozadie = biela
-               super_skok = 2
-               posledne_skore = 0
-               posledny_skok = 0
-               ostrovceky = [[165, 480, 70, 10], [85, 370, 70, 10], [265, 370, 70, 10], [165, 260, 70, 10],
-                             [85, 150, 70, 10], [265, 150, 70, 10], [265, 40, 70, 10]]
-           if event.key == pygame.K_SPACE and not koniec_hry and super_skok > 0:
-               super_skok -= 1
-               zmena_y = -15
-           if event.key == pygame.K_a:
-               zmena_x = - rychlost_hraca
-           if event.key == pygame.K_d:
-               zmena_x = - rychlost_hraca
-       if event.type == pygame.KEYUP:
-           if event.key == pygame.K_a:
-               zmena_x = 0
-           if event.key == pygame.K_d:
-               zmena_x = 0
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE and koniec_hry:
+                koniec_hry = False
+                skore = 0
+                hrac_y = 400
+                hrac_x = 170
+                pozadie = biela
+                super_skok = 2
+                posledne_skore = 0
+                posledny_skok = 0
+                ostrovceky = [[165, 480, 70, 10], [85, 370, 70, 10], [265, 370, 70, 10], [165, 260, 70, 10],
+                              [85, 150, 70, 10], [265, 150, 70, 10], [265, 40, 70, 10]]
+            if event.key == pygame.K_SPACE and not koniec_hry and super_skok > 0:
+                super_skok -= 1
+                zmena_y = -15
+            if  event.key == pygame.K_a:
+                zmena_x = - rychlost_hraca
+            if event.key == pygame.K_d:
+                zmena_x = - rychlost_hraca
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_a:
+                zmena_x = 0
+            if event.key == pygame.K_d:
+                zmena_x = 0
 
     skok = kolizie(ostrovy, skok)
     hrac_x += zmena_x
@@ -142,6 +142,7 @@ while running == True:
         zmena_x = 0
 
     ostrovceky = aktualizovane_ostrovceky(ostrovceky, hrac_y, zmena_y)
+
     if hrac_x < -20:
         hrac_x = -20
     elif hrac_x > 330:
