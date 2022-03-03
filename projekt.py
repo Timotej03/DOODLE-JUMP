@@ -141,7 +141,7 @@ while running == True:
         zmena_y = 0
         zmena_x = 0
 
-    ostrovceky = aktualizovane_ostrovceky(ostrovceky, hrac_x, hrac_y,)
+    ostrovceky = aktualizovane_ostrovceky(ostrovceky, hrac_y, zmena_y)
     if hrac_x < -20:
         hrac_x = -20
     elif hrac_x > 330:
@@ -164,4 +164,3 @@ while running == True:
         super_skok += 1
     pygame.display.flip()
 pygame.quit()
-
