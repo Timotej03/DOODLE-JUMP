@@ -91,9 +91,9 @@ while running == True:
     obrazovka.blit(hrac, (hrac_x, hrac_y))
     ostrovy = []
     skore_text = font.render('NAJVYŠŠIE SKÓRE: ' + str(najvyssie_skore), True, cervena, pozadie)
-    obrazovka.blit(skore_text, (228, 0))
+    obrazovka.blit(skore_text, (198, 0))
     najvyssie_skore_text = font.render('SKÓRE: ' + str(skore), True, cervena, pozadie)
-    obrazovka.blit(najvyssie_skore_text, (320, 20))
+    obrazovka.blit(najvyssie_skore_text, (290, 20))
 
     skore_text = font.render('Super skoky (Medzerník): ' + str(super_skok), True, zelena, pozadie)
     obrazovka.blit(skore_text, (10, 10))
