@@ -149,7 +149,7 @@ while running == True:
 
     if score - score_last > 20:
         score_last = score
-        pozadie = (random.randint(1 ,255), random.randint(1 ,255), random.randint(1 ,255))
+        pozadie = (random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
 
     if score - viac_skokov > 50:
         viac_skokov = score
