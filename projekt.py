@@ -94,7 +94,6 @@ while running == True:
     obrazovka.blit(skore_text, (198, 0))
     najvyssie_skore_text = font.render('SKÓRE: ' + str(skore), True, cervena, pozadie)
     obrazovka.blit(najvyssie_skore_text, (290, 20))
-
     skore_text = font.render('Super skoky (Medzerník): ' + str(super_skok), True, zelena, pozadie)
     obrazovka.blit(skore_text, (10, 10))
     if koniec_hry:
