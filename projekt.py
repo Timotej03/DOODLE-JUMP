@@ -6,12 +6,16 @@ pygame.init()
 mixer.init()
 
 #konstanty
+zlta = (255, 255, 0)
 biela = (255, 255, 255)
 cierna = (0, 0, 0)
 siva = (128, 128, 128)
+cervena = (255, 0, 0)
+modra = (0, 0, 255)
+zelena = (0, 155, 0)
 SIRKA = 400
 VYSKA = 500
-pozadie = biela
+pozadie = zlta
 hrac = pygame.transform.scale(pygame.image.load('doodle-removebg-preview.png'), (60, 50))
 fps = 60
 cas = pygame.time.Clock()
@@ -86,16 +90,16 @@ while running == True:
     obrazovka.fill(pozadie)
     obrazovka.blit(hrac, (hrac_x, hrac_y))
     ostrovy = []
-    skore_text = font.render('NAJVYŠŠIE SKÓRE:' + str(najvyssie_skore), True, cierna, pozadie)
-    obrazovka.blit(skore_text, (280, 0))
-    najvyssie_skore_text = font.render('SKÓRE: ' + str(skore), True, cierna, pozadie)
+    skore_text = font.render('NAJVYŠŠIE SKÓRE: ' + str(najvyssie_skore), True, cervena, pozadie)
+    obrazovka.blit(skore_text, (228, 0))
+    najvyssie_skore_text = font.render('SKÓRE: ' + str(skore), True, cervena, pozadie)
     obrazovka.blit(najvyssie_skore_text, (320, 20))
 
-    skore_text = font.render('Super skoky (Medzerník): ' + str(super_skok), True, cierna, pozadie)
+    skore_text = font.render('Super skoky (Medzerník): ' + str(super_skok), True, zelena, pozadie)
     obrazovka.blit(skore_text, (10, 10))
     if koniec_hry:
-        koniec_hry_text = font.render('HRA SKONČILA STLAČ MEDZERNÍK PRE POKRAČOVANIE!', True, cierna, pozadie)
-        obrazovka.blit(koniec_hry_text, (170, 80))
+        koniec_hry_text = font.render('Prehral si. Stlač medzerník pre respawn!', True, modra, pozadie)
+        obrazovka.blit(koniec_hry_text, (60, 200))
 
 
     for i in range(len(ostrovceky)):
